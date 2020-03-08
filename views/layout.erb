@@ -7,7 +7,7 @@
 
     <!-- Google Fonts -->
     <!-- Swap out "Roboto" for the font(s) you want to use -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Pacifico&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" crossorigin="anonymous">
@@ -18,9 +18,28 @@
     <!-- Your own CSS -->
     <link rel="stylesheet" href="/styles.css">
 
-    <title>Hello world!</title>
+    <title>Jeni's Flavor Finder</title>
   </head>
+
   <body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">Jeni's Flavor Finder</a>
+            <% if @current_user %>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Locations</a>
+                    </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="/">Report</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/logout" class="nav-link">Logout</a>
+                    </li>
+                </ul>
+            <% end %>
+        </div>
+    </nav>
 
     <div class="container mt-5">
       <%= yield %>

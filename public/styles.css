@@ -1,0 +1,62 @@
+/* body font is Open Sans */
+body {
+    font-family: 'Open Sans';
+    margin: 0px;
+    }
+
+h1 {
+    font-family: 'Pacifico';
+    font-size: 40px;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom:20px;
+    color:purple
+    }
+
+h2 {
+    font-family: 'Pacifico';
+    font-size: 26px;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom:10px;
+    color:orangered
+    }
+
+h3 {
+    font-family: 'Open Sans';
+    font-size: 18px;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom:20px;
+    }
+
+p {
+    margin-left: 20px;
+    margin-right:20px;
+    margin-bottom: 10px
+}
+
+.navbar-light .navbar-brand {
+    font-family: 'Pacifico';
+    font-size: 20px;
+    color: orangered
+}
+
+.btn-primary {
+    background-color:green;
+    border-color: green;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: orangered
+}
+
+#centerbtn {
+    text-align: center
+}
