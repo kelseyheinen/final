@@ -1,6 +1,14 @@
 <div class="container md">
 <h1>Locations</h1>
-<% for location in @locations %>
-    <p><a href="/locations/<%= location[:id] %>"><%= location[:store_name] %></a></p>
-<% end %>
+ <div class=row>
+    <div class="col-md-3 col-xs-1">
+    </div>
+    <div class="col-md-6 col-xs-10" id="listcenter">  
+            <% for location in @locations %>
+                <p><a href="/locations/<%= location[:id] %>"><%= location[:store_name] %></a></p>
+            <% end %>
+        </div>
+    <div class="col-md-3 col-xs-1">
+    </div>
+ </div>
 </div>

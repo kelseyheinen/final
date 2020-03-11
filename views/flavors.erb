@@ -1,0 +1,32 @@
+    <h1>Jeni's of <%= @location[:store_name] %></h1>
+    <div class="container md">
+    <div class=row id="listcenter">
+      <div class="col-md-12 col-xs-12">
+      <iframe
+        width="400"
+        height="250"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
+          &q=<%= @location[:latitude] %>,<%= @location[:longitude] %>"&zoom=10" allowfullscreen>
+      </iframe>
+      </div>
+    </div>
+    <div class=row id="listcenter">
+    <div class="col-md-12 col-xs-12">
+    <h2>Flavors</h2>
+    </div>
+    </div>
+    <div class=row>
+    <div class="col-md-3 col-xs-1">
+    </div>
+    <div class="col-md-6 col-xs-10" id=listcenter> 
+            <% for flavor in @flavors %>
+                <p><%= flavor[:flavor] %></p>
+            <% end %>
+    </div>
+    <div class="col-md-3 col-xs-1">
+    </div>
+ </div>        
+</div>
+    
+        

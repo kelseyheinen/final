@@ -17,7 +17,12 @@ after { puts; }                                                                 
 locations_table = DB.from(:locations)
 users_table = DB.from(:users)
 reports_table = DB.from(:reports)
+ratings_table = DB.from(:ratings)
 flavors_table = DB.from(:flavors)
+account_sid = "AC16c32757e27a5c93cc6ea55b6fc855f9"
+auth_token = "206480ed586ba69225fe822ecc91d599"
+client = Twilio::REST::Client.new(account_sid, auth_token)
+
 
 before do
     @current_user = users_table.where(id: session["user_id"]).to_a[0]
@@ -60,4 +65,38 @@ get "/locations" do
     puts locations_table.all
     @locations = locations_table.all.to_a
     view "locations"
+end
+
+get "/locations/:id" do
+    @location = locations_table.where(id: params[:id]).to_a[0]
+    @flavors = ratings_table.where(location_id: params[:id]).to_a
+    view "flavors"
+end
+
+get "/new_check_in" do
+    view "new_check_in"
+end
+
+post "/check_in" do
+    ratings_table.insert(flavor_id: params["flavor"],
+                        location_id: params["location"],
+                        rating: params["rating"],
+                        user_id: session["user_id"],
+                        active: true)
+    view "create_check_in"
+end
+
+get "/new_report" do
+    view "new_report"
+end
+
+post "/report/create" do
+    reports_table.insert(flavor: params["flavor"],
+                        location_id: params["location"],
+                        status: params["status"])
+    client.messages.create(
+        from: "+12055765636", 
+        to: "+14408230448",
+        body: "You have a new Jeni's Flavor Finder report.")
+    view "create_report"
 end
