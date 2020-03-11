@@ -20,9 +20,10 @@
     <div class="col-md-3 col-xs-1">
     </div>
     <div class="col-md-6 col-xs-10" id=listcenter> 
-            <% for flavor in @flavors %>
-                <p><%= flavor[:flavor] %></p>
-            <% end %>
+            <% for flavor in @uniqueflavorids %>
+                <p id="flavorlist"><%= @flavornames.where(id: flavor[:flavor_id]).to_a[0][:flavor] %></p>
+                 <p id="ratingtext"><%= @ratingsbystore.where(location_id: @location[:id]).where(flavor_id: flavor[:flavor_id]).avg(:rating) %> out of 10 </p>
+            <% end %>            
     </div>
     <div class="col-md-3 col-xs-1">
     </div>

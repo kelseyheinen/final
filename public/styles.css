@@ -75,3 +75,15 @@ p {
     text-align: center;
     font-size: 20px
 }
+
+#flavorlist {
+     margin-bottom: 0px;
+     color: purple
+
+}
+
+#ratingtext {
+     font-size: 16px;
+     margin-top: 0px
+
+}
