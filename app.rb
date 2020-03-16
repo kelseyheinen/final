@@ -65,27 +65,10 @@ end
 
 get "/locations/:id" do
     @location = locations_table.where(id: params[:id]).to_a[0]
-    
-    # goes in the view
     @uniqueflavorids = ratings_table.where(location_id: params[:id], active: true).distinct.select(:flavor_id)
     @flavornames = flavors_table
     @ratingsbystore = ratings_table
-    # 1. loop through ids
-    # 2. for each id in the loop
-        # 2a. calculate average of ratings for that location and flavor id
-            # ratings_table.where(location_id: @location[:id]).where(flavor_id: flavor_id).average(:rating)
-
-        # 2b. find the flavor's name by the id
-             # flavors table  query name by id
-
-# #get unique list of flavor ids from ratings table where location id = params[:id] 
     @uniqueflavorids = ratings_table.where(location_id: params[:id], active: true).distinct.select(:flavor_id)
-# #define varaible 
-#     @flavors = ratings_table.where(ids = @uniqueflavorids).to_a
-# #create average vaiable
-#     #get flavor ID from list generated in loop on flavors.erb
-#     @avgratings=ratings_table average(ratings) where flavor id = ^
-
     view "flavors"
 end
 
