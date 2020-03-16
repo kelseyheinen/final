@@ -110,8 +110,8 @@ post "/report/create" do
     reports_table.insert(flavor: params["flavor"],
                         location_id: params["location"],
                         status: params["status"])
-    account_sid = "AC16c32757e27a5c93cc6ea55b6fc855f9"
-    auth_token = "8db9ef1e01f5f01fcf7a6dab3f06fd6d"
+    account_sid = ENV["AC16c32757e27a5c93cc6ea55b6fc855f9"]
+    auth_token = ENV["7ebc2c2568d4b9f3f24a2c15109113a9"]
     client = Twilio::REST::Client.new(account_sid, auth_token)
     client.messages.create(
         from: "+12055765636", 
