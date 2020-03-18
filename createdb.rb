@@ -30,7 +30,7 @@ DB.create_table! :ratings do
   primary_key :id
   foreign_key :flavor_id
   foreign_key :user_id
-  Integer :rating
+  String :rating
   foreign_key :location_id
   Boolean :active
 end
